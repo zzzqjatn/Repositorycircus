@@ -38,6 +38,7 @@ SpriteAtlas:
     cachedData: {fileID: 0}
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
+  - {fileID: 21300000, guid: 2f50f7b6d2f6f4a49b1eda0b09024216, type: 3}
   - {fileID: 21300000, guid: 02d9f5f6b2a3d1f439788b6660eb78c6, type: 2}
   - {fileID: 21300000, guid: 250d33c183c0e8c4e9302fb63046de8b, type: 2}
   - {fileID: 21300000, guid: dd0ecb351abdefc48843ff7d7ac07ac9, type: 3}
@@ -85,6 +86,7 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 1733ec4e3ac7e044bab0e2ffc2df8d23, type: 2}
   - {fileID: 21300000, guid: 7f41d75e600e4ef4e840820a9f7d0838, type: 2}
   m_PackedSpriteNamesToIndex:
+  - backGround
   - Btn_Circle
   - Icon_setting
   - Title
