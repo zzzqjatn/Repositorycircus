@@ -4,35 +4,33 @@ using UnityEngine;
 
 public class BackGroundManager : MonoBehaviour
 {
-    private const int MAP_END_SIZE = 5;
-    private int MapCount = 0;
-    private int NowEndMapNum = 0;
     public GameObject BackGroundPrefabs;
     private const int BACKGROUND_COUNT = 3;
+
+    private float MAP_WIDTH;
     private List<GameObject> BackGroundObjsPool;
 
     void Start()
     {
-        MapCount = 0;
-        MoveConnectManager.SetMapCount(MapCount);
-        NowEndMapNum = BACKGROUND_COUNT - 1;
         BackGroundObjsPool = new List<GameObject>();
 
-        //GameObject findtemp = GFunc.FindRootObjs("GameObjs");
-        //GameObject preFabTemp = findtemp.FindChildObjs("BackGround_Sample");
-
-        float Backs = BackGroundPrefabs.RectTrans().sizeDelta.x;
-        float StartPos = 0.0f - Backs * 0.4f;
+        float sizeX = BackGroundPrefabs.RectTrans().sizeDelta.x;
+        float StartPos = 0.0f - sizeX * 0.25f;
         for (int i = 0; i < BACKGROUND_COUNT; i++)
         {
-            GameObject temp = Instantiate(BackGroundPrefabs);
-            temp.transform.SetParent(gameObject.transform);
-            temp.RectTrans().localPosition = new Vector3(StartPos, 0f, 0f);
-            temp.RectTrans().localScale = new Vector3(1f, 1f, 1f);
-            BackGroundObjsPool.Add(temp);
+            GameObject preFabtemp = Instantiate(BackGroundPrefabs);
+            preFabtemp.transform.SetParent(gameObject.transform);
+            preFabtemp.RectTrans().localPosition = new Vector3(StartPos, 0f, 0f);
+            preFabtemp.RectTrans().localScale = new Vector3(1f, 1f, 1f);
+            BackGroundObjsPool.Add(preFabtemp);
 
-            StartPos += Backs;
+            StartPos += sizeX;
         }
+
+        //전체 맵 길이
+        MAP_WIDTH = sizeX * 10;
+
+        MoveConnectManager.SetMapSize(MAP_WIDTH);
     }
 
     void Update()
@@ -42,7 +40,7 @@ public class BackGroundManager : MonoBehaviour
     }
 
     public void MapMove()
-    {
+    {    
         if (InputManager.isJump == false)
         {
             //플레이어가 일정 범위에 걸쳤을 때
@@ -92,7 +90,67 @@ public class BackGroundManager : MonoBehaviour
     }
 
 
-    public void Reposition2()
+//백업함수 나중에 잘되면 지워도 됨
+
+/*     void Start()
+    {
+        BackGroundObjsPool = new List<GameObject>();
+
+        //GameObject findtemp = GFunc.FindRootObjs("GameObjs");
+        //GameObject preFabTemp = findtemp.FindChildObjs("BackGround_Sample");
+
+        float sizeX = BackGroundPrefabs.RectTrans().sizeDelta.x;
+        float StartPos = 0.0f - sizeX / 2;
+        for (int i = 0; i < BACKGROUND_COUNT; i++)
+        {
+            GameObject preFabtemp = Instantiate(BackGroundPrefabs);
+            preFabtemp.transform.SetParent(gameObject.transform);
+            preFabtemp.RectTrans().localPosition = new Vector3(StartPos, 0f, 0f);
+            preFabtemp.RectTrans().localScale = new Vector3(1f, 1f, 1f);
+            BackGroundObjsPool.Add(preFabtemp);
+
+            StartPos += sizeX;
+        }
+
+        //전체 맵 길이
+        MAP_WIDTH = sizeX * 10;
+
+        MoveConnectManager.SetMapSize(MAP_WIDTH);
+    } */
+
+/*     public void Reposition3()
+    {
+        if(MoveConnectManager.isRolling == true)
+        {
+            
+        }
+
+        if (BackGroundObjsPool[0].RectTrans().localPosition.x < -1100.0f)
+        {
+            float RePosX = 0.0f;
+            GameObject objtemp = BackGroundObjsPool[0];
+            RePosX = BackGroundObjsPool[BackGroundObjsPool.Count - 1].RectTrans().localPosition.x
+                        + BackGroundPrefabs.RectTrans().sizeDelta.x;
+            objtemp.RectTrans().localPosition = new Vector3(RePosX, 0f, 0f);
+
+            BackGroundObjsPool.RemoveAt(0);
+            BackGroundObjsPool.Add(objtemp);
+        }
+
+        if (BackGroundObjsPool[BackGroundObjsPool.Count - 1].RectTrans().localPosition.x > 1100.0f)
+        {
+            float RePosX = 0.0f;
+            GameObject objtemp = BackGroundObjsPool[BackGroundObjsPool.Count - 1];
+            RePosX = BackGroundObjsPool[0].RectTrans().localPosition.x
+                        - BackGroundPrefabs.RectTrans().sizeDelta.x;
+            objtemp.RectTrans().localPosition = new Vector3(RePosX, 0f, 0f);
+
+            BackGroundObjsPool.RemoveAt(BackGroundObjsPool.Count - 1);
+            BackGroundObjsPool.Insert(0, objtemp);
+        }
+    } */
+
+/*  public void Reposition2()
     {
         for (int i = 0; i < BackGroundObjsPool.Count; i++)
         {
@@ -144,5 +202,5 @@ public class BackGroundManager : MonoBehaviour
             }
             else { continue; }
         }
-    }
+    } */
 }

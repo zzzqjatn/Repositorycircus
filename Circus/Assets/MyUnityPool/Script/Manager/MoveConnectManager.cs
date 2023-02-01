@@ -5,16 +5,18 @@ using UnityEngine;
 public static class MoveConnectManager
 {
     public static bool isMapMove = false;
+    public static float MapSize = 0.0f;
 
-    public static int MapCount_ = 0;
-
-    public static void SetMapCount(int count)
+    //롤링에 대한
+    public static int NowPlayerPos = 0;
+    
+    public static void SetMapSize(float mapSize_)
     {
-        MapCount_ = count;
+        MapSize = mapSize_;
     }
 
-    public static int GetMapcount()
+    public static float GetMapSize()
     {
-        return MapCount_;
+        return MapSize;
     }
 }
