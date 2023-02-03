@@ -25,19 +25,19 @@ public class Player : MonoBehaviour
         {
             Player_Jump();
         }
-        else if (InputManager.isJump == false)
-        {
-            Player_Move();
-        }
+        // else if (InputManager.isJump == false)
+        // {
+        //     Player_Move();
+        // }
     }
 
     public void Player_Move()
     {
-        if (InputManager.isJump == false)
-        {
-            float movePoint = InputManager.LR_KeyInput() * (InputManager.SPEED * Time.deltaTime);
-            gameObject.RectTranPosMove(movePoint, 0f, 0f);
-        }
+        // if (InputManager.isJump == false)
+        // {
+        //     float movePoint = InputManager.LR_KeyInput() * (InputManager.SPEED * Time.deltaTime);
+        //     gameObject.RectTranPosMove(movePoint, 0f, 0f);
+        // }
     }
     public void Player_Jump()
     {

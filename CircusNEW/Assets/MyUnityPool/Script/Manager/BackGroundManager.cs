@@ -28,16 +28,27 @@ public class BackGroundManager : MonoBehaviour
 
     void Update()
     {
-        //MapMove();
-        //Reposition();
+        MapMove();
+        Reposition();
     }
 
     public void MapMove()
     {
-        float movePoint = -1 * (InputManager.SPEED * Time.deltaTime);
-        for (int i = 0; i < BackGroundObjsPool.Count; i++)
+        if (InputManager.isJump == false)
         {
-            BackGroundObjsPool[i].RectTranPosMove(movePoint, 0f, 0f);
+            float movePoint = InputManager.LR_KeyInput() * (-1) * (InputManager.SPEED * Time.deltaTime);
+            for (int i = 0; i < BackGroundObjsPool.Count; i++)
+            {
+                BackGroundObjsPool[i].RectTranPosMove(movePoint, 0f, 0f);
+            }
+        }
+        else if (InputManager.isJump == true)
+        {
+            float movePoint = InputManager.NowDir * (-1) * (InputManager.SPEED * Time.deltaTime);
+            for (int i = 0; i < BackGroundObjsPool.Count; i++)
+            {
+                BackGroundObjsPool[i].RectTranPosMove(movePoint, 0f, 0f);
+            }
         }
     }
 
