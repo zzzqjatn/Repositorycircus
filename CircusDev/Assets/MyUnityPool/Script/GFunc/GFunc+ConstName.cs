@@ -8,4 +8,6 @@ public static partial class GFunc
     public const string BACKGROUND_PREFAB_NAME = "BackGround_Sample";
     public const string UIOBJ_ROOT_NAME = "UIObjs";
     public const string PLAYER_OBJ_NAME = "Player";
+    public const string CAMERA_OBJ_NAME = "MainCamera";
+    public const string SUBBG_OBJ_NAME = "RoomCheck";
 }

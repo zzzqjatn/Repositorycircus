@@ -4,12 +4,14 @@ using UnityEngine;
 
 public static class InputManager
 {
-    public const int SPEED = 200;
+    public const int SPEED = 100;
     public static int POWER = 8;
     public static bool isJump = false;
     public static int NowDir = 0;
-    public static float MapMaxPos = 8000.0f;
-    public static bool isMapMove = false;
+
+    public static float MapMaxPos = 0.0f;
+    public static float MapSizeX = 0.0f;
+    public static float CameraOffset = 450.0f;
     public static int LR_KeyInput()
     {
         int KeyX = 0;
@@ -39,4 +41,12 @@ public static class InputManager
         return isRight;
     }
 
+    public static void SetMapMaxPos(float input)
+    {
+        MapMaxPos = input;
+    }
+    public static void SetMapSizeX(float input)
+    {
+        MapSizeX = input;
+    }
 }

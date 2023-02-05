@@ -49,16 +49,17 @@ public static partial class GFunc
                 result = target;
                 return result;
             }
-            else
+            else 
             {
-                result = FindChildObjs(target, objName);
+                target = FindChildObjs(target, objName);
+                if (target == null || target == default) { /* Pass */ }
+                else if (target.name.Equals(objName))
+                {
+                    result = target;
+                    return result;
+                }
             }
-            result = FindChildObjs(target, objName);
         }
-
-        if (result == null || result == default) {/* pass */}
-        else { return result; }
-
         return result;
     }
 

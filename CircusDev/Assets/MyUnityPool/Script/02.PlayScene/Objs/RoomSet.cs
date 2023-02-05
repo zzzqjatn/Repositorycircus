@@ -16,7 +16,7 @@ public class RoomSet : MonoBehaviour
         MitterObj = gameObject.FindChildObjs("Mitter");
         Image temp = MitterObj.GetComponent<Image>();
 
-        ChangeMitterSprite(RoomNumber, out temp);
+        temp.sprite = ChangeMitterSprite(RoomNumber);
     }
 
     void Update()
@@ -24,45 +24,46 @@ public class RoomSet : MonoBehaviour
 
     }
 
-    private void ChangeMitterSprite(int RoomNum, out Image input)
+    private Sprite ChangeMitterSprite(int RoomNum)
     {
-        Image tempImage = default;
+        Sprite temp = default;
+
         switch (RoomNum)
         {
             case 0:
-                tempImage.sprite = spriteAtlas_.GetSprite("Mitter_0");
+                temp = spriteAtlas_.GetSprite("Mitter_0");
                 break;
             case 1:
-                tempImage.sprite = spriteAtlas_.GetSprite("Mitter_1");
+                temp = spriteAtlas_.GetSprite("Mitter_1");
                 break;
             case 2:
-                tempImage.sprite = spriteAtlas_.GetSprite("Mitter_2");
+                temp = spriteAtlas_.GetSprite("Mitter_2");
                 break;
             case 3:
-                tempImage.sprite = spriteAtlas_.GetSprite("Mitter_3");
+                temp = spriteAtlas_.GetSprite("Mitter_3");
                 break;
             case 4:
-                tempImage.sprite = spriteAtlas_.GetSprite("Mitter_4");
+                temp = spriteAtlas_.GetSprite("Mitter_4");
                 break;
             case 5:
-                tempImage.sprite = spriteAtlas_.GetSprite("Mitter_5");
+                temp = spriteAtlas_.GetSprite("Mitter_5");
                 break;
             case 6:
-                tempImage.sprite = spriteAtlas_.GetSprite("Mitter_6");
+                temp = spriteAtlas_.GetSprite("Mitter_6");
                 break;
             case 7:
-                tempImage.sprite = spriteAtlas_.GetSprite("Mitter_7");
+                temp = spriteAtlas_.GetSprite("Mitter_7");
                 break;
             case 8:
-                tempImage.sprite = spriteAtlas_.GetSprite("Mitter_8");
+                temp = spriteAtlas_.GetSprite("Mitter_8");
                 break;
             case 9:
-                tempImage.sprite = spriteAtlas_.GetSprite("Mitter_9");
+                temp = spriteAtlas_.GetSprite("Mitter_9");
                 break;
             case 10:
-                tempImage.sprite = spriteAtlas_.GetSprite("Mitter_10");
+                temp = spriteAtlas_.GetSprite("Mitter_10");
                 break;
         }
-        input = tempImage;
+        return temp;
     }
 }
